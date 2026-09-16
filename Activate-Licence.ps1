@@ -29,7 +29,7 @@ $copy.Add_Click({
     catch { [Windows.Forms.MessageBox]::Show($form, $_.Exception.Message, 'Could not copy') | Out-Null }
 }); $form.Controls.Add($copy)
 $instructions = New-Object Windows.Forms.Label
-$instructions.Text = 'Paste the complete licence text you received, or open your .lic file.'
+$instructions.Text = 'Paste the activation key you received, then click Activate.'
 $instructions.SetBounds(20, 147, 540, 28); $form.Controls.Add($instructions)
 $text = New-Object Windows.Forms.TextBox
 $text.Multiline = $true; $text.ScrollBars = 'Vertical'; $text.MaxLength = 65536
