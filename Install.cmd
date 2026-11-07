@@ -1,3 +1,7 @@
 @echo off
-powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File "%~dp0Setup.ps1"
-if errorlevel 1 pause
+if not exist "%~dp0CMNSetup.exe" (
+  echo Extract the complete customer download before running Install.cmd.
+  pause
+  exit /b 1
+)
+start "" "%~dp0CMNSetup.exe"

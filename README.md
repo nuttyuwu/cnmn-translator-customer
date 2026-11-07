@@ -1,51 +1,40 @@
-# MN AutoCAD Translator
+# CMN AutoCAD Translator
 
-Customer installer for AutoCAD 2024–2027 on Windows. This repository contains
-compiled software and installation scripts only. No source project, signing key,
-developer tools, or full project glossary is distributed here.
+Customer package **0.6.2** for Windows and AutoCAD 2024–2027.
 
-1. Download this repository as a ZIP and extract it, or clone it.
-2. Close AutoCAD. Double-click **Install.cmd**.
-3. The activation window opens. Click **Copy machine ID** and send it to Khongor
-   at ebatkhongor@gmail.com.
-4. When you receive your activation key by message, paste it into the window
-   and click **Activate**. No licence file needs to be sent.
-5. For AI translation, paste your Alibaba Model Studio **Qwen API key** in the
-   same window. Select the region where you created the key, then click
-   **Save Qwen setup** and **Check connection**. For a workspace-specific key,
-   select Custom workspace endpoint and paste its OpenAI-compatible URL.
-6. Start AutoCAD, allow the plug-in to load if prompted, and run **MNTRANSLATE**
-   for glossary-only translation or **MNTRANSLATEAI** to use Qwen.
+Download this repository with **Code → Download ZIP**, extract it, and double-click
+**Install.cmd**. In the setup window, choose **Install bundled version** after
+closing AutoCAD. Keep CMNSetup.exe and CMN.Payload.zip together; setup reads
+the inner ZIP automatically. No Git, compiler, .NET SDK or GitHub sign-in is needed.
 
-No administrator rights, GitHub credentials, developer SDK or separate .NET
-runtime are required. Downloading or cloning alone does not execute an installer.
+This repository contains compiled software, installer/support scripts and release
+metadata. Application source, licence issuer tools, private keys, API keys and
+private project glossaries are excluded. Compiled .NET software can still be
+decompiled; this package does not claim to prevent reverse engineering.
 
-You can close the activation window and reopen it with **Activate-Licence.cmd**.
-Inside AutoCAD, **MNSETUP** opens activation and Qwen setup; **MNLICENSE** also
-shows your machine ID, imports licences and has a Qwen setup button.
-Keys work offline, are tied to the issued machine, and expire **one month or one
-year** from issuance, as selected by Khongor. The expiry date is inclusive.
-Existing `.lic` files still work.
+This is the newer v0.6 product line: it has no licence activation or expiry gate.
+The six-word starter glossary is intentionally small. Import your approved
+company glossary using the setup manager, or run **MNTERMS** in AutoCAD to select
+a project glossary and discipline. AI translation still requires your own
+provider configuration and API key; the offline glossary mode needs neither.
 
-The Qwen key is encrypted for your Windows account, outside the installation,
-and is never stored in a plaintext environment variable by this setup. Other
-software running as you, or an administrator controlling your account, can still
-recover it. Do not share your key. The connection check sends no drawing data;
-AI translation sends drawing text to your selected Qwen service and requires
-its model access and quota. See [Alibaba Model Studio setup](https://www.alibabacloud.com/help/en/model-studio/text-generation).
+Approved terms are locked exactly, with longer approved phrases taking priority.
+AI fills only uncovered Chinese text. **MNGLOSSARYAUDIT** writes one list of
+duplicate, conflicting or overridden terms; ambiguous mappings are blocked.
 
-For updates, download or pull the latest package, close AutoCAD, and run
-**Install.cmd** again. The installer retains existing glossary/settings data
-and a rollback bundle. Run **Rollback-CmnCadTranslator.ps1** if needed.
+Review workbooks show source, English, draft, final, approval and occurrence count.
+Drawing IDs and technical details are hidden. Repeated text in the same context
+can be approved once. Use Excel **Data → Clear** to show all rows. Set approval
+to **Y**, then use **MNIMPORT** to apply or **MNMERGE** to learn the wording.
+Keep the workbook in its original project folder so its scope can be verified.
 
-To remove the product, close AutoCAD and double-click **Uninstall.cmd**. Confirm
-once to delete the installed bundle, rollback copies, activation licence, saved
-Qwen key, settings, logs and **all local glossaries**. Export glossaries you need
-first. It also removes the current user's legacy DASHSCOPE_API_KEY and CNMN
-environment settings; other applications using that same variable will need
-their own key configured again. Downloaded installer files, drawing files and
-custom files outside the translator's standard data folder are retained.
+**Update.cmd** opens the setup manager. Online update checks use this public
+repository's GitHub Releases; a repo update alone is not a published Release.
+Until a Release is published, download the current package here and install its
+bundled version. Existing company/project glossaries are preserved on update.
+**Rollback.cmd** restores a retained version. **Uninstall.cmd** removes this
+product and its local data after confirmation; export your glossary first.
 
-Only a small generic glossary is included. Supply terminology you are authorized
-to use. A SHA-256 checksum detects damaged or mismatched downloads; it is not a
-digital signature. Obtain this package from the repository supplied by Khongor.
+SHA-256 files detect download corruption; they are **not digital signatures**.
+Run **MNVERSION** when requesting support. Send drawings or glossaries only
+through your company's approved support channel.
